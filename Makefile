@@ -25,6 +25,8 @@ OBJS = notmuchfs.o
 
 LIBS = -lnotmuch -lfuse
 
+PREFIX := /usr/local
+
 all: notmuchfs
 
 notmuchfs: $(OBJS)
@@ -41,3 +43,8 @@ clean:
     rm -f $*.d
 
 -include $(OBJS:.o=.dep)
+
+install: all
+	install -d $(PREFIX)/bin; \
+	install notmuchfs $(PREFIX)/bin; \
+	install mutt/bin/* $(PREFIX)/bin;

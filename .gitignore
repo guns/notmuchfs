@@ -2,3 +2,6 @@
 *.dep
 notmuchfs
 tags
+
+/pkg
+/*.tar.xz*

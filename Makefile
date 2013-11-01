@@ -45,6 +45,6 @@ clean:
 -include $(OBJS:.o=.dep)
 
 install: all
-	install -d $(PREFIX)/bin; \
-	install notmuchfs $(PREFIX)/bin; \
-	install mutt/bin/* $(PREFIX)/bin;
+	install -d $(DESTDIR)$(PREFIX)/bin
+	install notmuchfs $(DESTDIR)$(PREFIX)/bin
+	install mutt/bin/* $(DESTDIR)$(PREFIX)/bin

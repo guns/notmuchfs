@@ -1,19 +1,20 @@
 # Maintainer: Sung Pae <self@sungpae.com>
-pkgname=notmuchfs-guns
-pkgver=commit.8
+pkgname=notmuchfs-nerv
+pkgver=
 pkgrel=1
-pkgdesc="Sung Pae's notmuchfs build"
+pkgdesc="Custom notmuchfs build"
 arch=('x86_64')
 url="https://github.com/guns/notmuchfs"
 license=('GPL')
-groups=('guns')
+groups=('nerv')
 depends=('notmuch-runtime' 'fuse')
 makedepends=('git')
 provides=('notmuchfs')
 conflicts=('notmuchfs')
+replaces=('notmuchfs-guns')
 
 pkgver() {
-    printf commit.%s "$(git rev-list HEAD --count)"
+    printf %s.%s "$(git rev-parse --abbrev-ref HEAD)" "$(git rev-list HEAD --count)"
 }
 
 build() {
